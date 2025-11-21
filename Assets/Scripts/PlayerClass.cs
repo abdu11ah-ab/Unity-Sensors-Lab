@@ -6,7 +6,6 @@ public class PlayerClass : MonoBehaviour
     public float movementSpeed = 5.0f;
     public float rotationSpeed = 200.0f;
 
-    // Update is called once per frame
     void Update()
     {
         // Get "Vertical" input (Up/Down arrows)
@@ -27,11 +26,14 @@ public class PlayerClass : MonoBehaviour
         if (col.gameObject.name == "Enemy")
         {
             // Double the enemy's current size
+            // SKILL DEMO: 15. Adjust the size of an object programmatically.
             col.gameObject.transform.localScale *= 2.0f;
         }
     }
 
     // Draws the green "forward" line for the player
+
+    //SKILL DEMO: 16. Draw a Gizmo
     void OnDrawGizmos()
     {
         // Draw a green ray from the player's position, in its forward direction

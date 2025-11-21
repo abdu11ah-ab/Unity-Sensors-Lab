@@ -17,16 +17,17 @@ public class EnemyClass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 1. Determine target direction (player pos - enemy pos)
+        //Determine target direction (player pos - enemy pos)
         targetDirection = Player.position - transform.position;
 
-        // 2. Determine rotation to face the player
+        // Determine rotation to face the player
         targetRotation = Quaternion.LookRotation(targetDirection);
 
-        // 3. Slowly rotate (Slerp) towards the player
+        // Slowly rotate (Slerp) towards the player
+        //SKILL DEMO: 13. Use spherical linear interpolation to smoothly turn a game object over time.
         this.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
 
-        // 4. Determine if player is in the Field of View (FOV)
+        // Determine if player is in the Field of View (FOV)
         // Get the angle between enemy's forward and direction to player
         targetAngle = Vector3.Angle(targetDirection, transform.forward);
 
@@ -48,6 +49,8 @@ public class EnemyClass : MonoBehaviour
     }
 
     // Draws all the debug guides
+
+    //SKILL DEMO: 16. Draw a Gizmo
     void OnDrawGizmos()
     {
         // 1. Draw red line from enemy to player
